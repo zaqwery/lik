@@ -1,0 +1,8 @@
+.group
+  =f.label :photo
+  =f.error_message_on :photo
+  =f.file_field :image
+  =f.hidden_field :image_cache
+  =f.hidden_field :project_id, :value => @project.id
+  =f.submit pat(:upload) 
+  %span.description Ex: a simple text

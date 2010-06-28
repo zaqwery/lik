@@ -1,0 +1,7 @@
+--- 
+:script: jquery
+:test: none
+:renderer: haml
+:orm: activerecord
+:stylesheet: sass
+:mock: none
