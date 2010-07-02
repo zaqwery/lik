@@ -13,10 +13,11 @@ Admin.controllers :photos do
   post :create do
     @photo = Photo.new(params[:photo])
     if @photo.save!
+    	@project_id =@photo.project_id
       flash[:notice] = 'Photo was successfully created.'
-      redirect url(:photos, :edit, :id => @photo.id)
+      redirect url(:projects, :edit, :id => @project_id)
     else
-      render 'photos/new'
+      render 'projects/new'
     end
   end
 

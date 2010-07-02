@@ -2,9 +2,16 @@
   =f.label :image
   =f.error_message_on :image
   =f.file_field :image
-  =f.hidden_field :image_cache
+  -#=f.hidden_field :image_cache
+  -if !@photo.image.empty?
+    =image_tag @photo.image.thumb 
+    =button_to pat(:delete), url(:photos, :destroy, :id => self), :method => :delete, :confirmation => "Вы хотите удалить картинку?", :onclick => "window.location='#{url(:photos, :index)}';return false", :class => :button_to 
+  -#-@project.photos.each do |photo|
+    -#=image_tag photo.image.thumb
+
   %span.description Ex: a simple text
 
 .group.navform.wat-cf
+
   =f.submit pat(:save), :class => :button
   =f.submit pat(:cancel), :onclick => "window.location='#{url(:photos, :index)}';return false", :class => :button

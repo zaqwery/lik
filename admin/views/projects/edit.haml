@@ -9,9 +9,11 @@
       =pat(:edit)
       =mt(:project)
     .inner
-      -form_for :project, url(:projects, :update, :id => @project.id), :method => :put, :class => :form do |f|
+      -form_for :project, url(:projects, :update, :id => @project.id), :method => :put, :multipart => true, :class => :form do |f|
         =partial "projects/form", :locals => { :f => f }
+
       -form_for :photo, url(:photos, :create), :multipart => true, :class => :form do |f|
-        =partial "projects/photos", :locals => { :f => f }        
+        =partial "projects/photo", :locals => { :f => f }
+
 
 -content_for :sidebar, partial("base/sidebar")

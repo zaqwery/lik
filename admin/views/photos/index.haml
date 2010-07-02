@@ -19,7 +19,7 @@
         -@photos.each do |photo|
           %tr
             %td.first=photo.id
-            %td=image_tag(photo.image.thumb)
+            -#%td=image_tag(photo.image.thumb)
             %td=photo.created_at
             %td=photo.updated_at
             %td=photo.project_id

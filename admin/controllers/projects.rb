@@ -2,7 +2,6 @@ Admin.controllers :projects do
 
   get :index do
     @projects = Project.all
-    @photos = Photo.all
     render 'projects/index'
   end
 
@@ -25,15 +24,7 @@ Admin.controllers :projects do
 
   get :edit, :with => :id do
     @project = Project.find(params[:id])
-    #@photo = Photo.new(params[:photo])
-    #@photo.project_id = @project.id
-    #photo_save
-    #if @photo.save
-      #flash[:notice] = 'Photo was successfully added.'
-      #redirect url(:projects, :edit, :id => @project.id)
-   # else
-      render 'projects/edit'
-    #end
+    render 'projects/edit'
   end
 
   put :update, :with => :id do
@@ -54,15 +45,6 @@ Admin.controllers :projects do
       flash[:error] = 'Impossible destroy Project!'
     end
     redirect url(:projects, :index)
-  end
-  
-  def photo_save 
-    if @photo.save
-      flash[:notice] = 'Project was successfully created.'
-      redirect url(:projects, :edit, :id => @project.id)
-    else
-      render 'projects/index'
-    end
   end
     
 end
