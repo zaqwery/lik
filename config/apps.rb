@@ -22,5 +22,5 @@
 #
 
 # Mounts the core application for this project
-Padrino.mount("Pad").to('/')
+Padrino.mount("Lik").to('/')
 Padrino.mount("Admin").to("/admin")

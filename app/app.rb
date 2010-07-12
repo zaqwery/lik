@@ -1,8 +1,22 @@
-class Pad < Padrino::Application
+class Lik < Padrino::Application
   register Padrino::Mailer
   register Padrino::Helpers
   register SassInitializer
-  #register Photo::ImageUploader
+  
+  #layout :application 
+  
+  get :index do 
+    render 'layouts/services'
+  end
+  
+  get :contact do
+    render 'layouts/about'
+  end
+  
+  get :about do
+    render 'layouts/about'
+  end
+  
 
 
   ##

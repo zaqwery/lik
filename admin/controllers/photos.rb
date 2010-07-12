@@ -13,7 +13,7 @@ Admin.controllers :photos do
   post :create do
     @photo = Photo.new(params[:photo])
     if @photo.save!
-    	@project_id =@photo.project_id
+    	@project_id = @photo.project_id
       flash[:notice] = 'Photo was successfully created.'
       redirect url(:projects, :edit, :id => @project_id)
     else
@@ -38,8 +38,10 @@ Admin.controllers :photos do
 
   delete :destroy, :with => :id do
     photo = Photo.find(params[:id])
-    if photo.destroy
+    if photo.destroy 
+      @project_id = photo.project_id
       flash[:notice] = 'Photo was successfully destroyed.'
+      redirect url(:projects, :edit, :id => @project_id)
     else
       flash[:error] = 'Impossible destroy Photo!'
     end

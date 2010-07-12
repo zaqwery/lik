@@ -1,0 +1,4 @@
+.group  
+  -@project.photos.each do |photo|
+    =image_tag photo.image.thumb
+    =button_to pat(:delete), url(:photos, :destroy, :id => photo.id), :method => :delete, :class => :button_to
