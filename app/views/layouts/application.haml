@@ -6,14 +6,16 @@
     =stylesheet_link_tag 'lik'
     =javascript_include_tag 'jquery'
   %body
-    #container
-      #header
-        =image_tag '/lik_logo.png', :class => 'logo' 
-      #user_navigation
-        =partial 'layouts/header'
+    #container  
+      #frame
+        =image_tag '/lik_logo.png', :class => 'logo'
+        #line 
+        %p=partial 'layouts/navi'
+       
+      #content=yield   
+      =partial 'layouts/footer'    
         
         
-        =yield 
-        =partial 'layouts/footer'
+        
     
     
