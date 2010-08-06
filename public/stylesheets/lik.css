@@ -40,7 +40,21 @@ body {
   width: 460px;
   height: 100%;
   overflow: visible; }
-  #frame p {
+
+#main {
+  background-color: #ffeeff;
+  margin: 0px auto;
+  width: 460px;
+  height: 100%;
+  overflow: visible; }
+  #main p {
+    text-align: left; }
+  #main li {
+    text-align: left; }
+
+#header {
+  height: 100%; }
+  #header p {
     font-size: 10pt;
     margin-top: 110px;
     text-align: center;
@@ -48,16 +62,13 @@ body {
 
 #img_container {
   width: 650px;
-  height: 100%; }
+  height: 100%;
+  position: relative;
+  right: 95px;
+  z-index: 2; }
 
 .content {
-  font-size: 10pt;
-  text-align: left;
-  width: 100%;
-  margin: 30px auto;
-  border: 1px solid black;
-  position: relative;
-  z-index: 2; }
+  border: 1px solid black; }
 
 #line {
   height: 1px;
@@ -72,13 +83,6 @@ body {
   float: right;
   margin-right: 132px;
   margin-top: 20px; }
-
-#header {
-  padding: 30px 10px 20px 10px;
-  border-bottom: 2px solid #ec9a94;
-  width: 100%;
-  overflow: hidden;
-  text-transform: uppercase; }
 
 #user_navigation {
   top: auto;
@@ -106,43 +110,43 @@ body {
         #user_navigation ul.menu li a:hover {
           text-decoration: underline; }
 
-#main {
+#main1 {
   float: left;
   width: 600px;
   padding-top: 20px; }
-  #main h2 {
+  #main1 h2 {
     font-size: 2.1em; }
-  #main .post {
+  #main1 .post {
     margin-bottom: 20px; }
-    #main .post p {
+    #main1 .post p {
       padding-bottom: 10px; }
-    #main .post .title {
+    #main1 .post .title {
       font-family: "Georgia,Times New Roman,serif";
       font-size: 2em;
       color: #752a26; }
-      #main .post .title a {
+      #main1 .post .title a {
         color: #752a26;
         text-decoration: none; }
-        #main .post .title a:hover {
+        #main1 .post .title a:hover {
           text-decoration: underline; }
-    #main .post .date {
+    #main1 .post .date {
       font-size: 1.1em;
       color: #999999;
       display: block;
       margin-bottom: 15px;
       margin-top: 2px; }
-    #main .post .body {
+    #main1 .post .body {
       padding-bottom: 10px; }
-    #main .post .details {
+    #main1 .post .details {
       border-top: 1px solid #cccccc;
       margin-bottom: 0.25em;
       padding: 5px 0;
       overflow: hidden; }
-      #main .post .details .author {
+      #main1 .post .details .author {
         float: left;
         padding-right: 5px;
         border-right: 1px solid #cccccc; }
-  #main #show .author {
+  #main1 #show .author {
     border-right: none; }
 
 #sidebar {

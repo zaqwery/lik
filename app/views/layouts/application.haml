@@ -6,12 +6,14 @@
     =stylesheet_link_tag 'lik'
     =javascript_include_tag 'jquery'
   %body
-    #container  
-      #frame
-        =image_tag '/lik_logo.png', :class => 'logo'
-        #line 
-        %p=partial 'layouts/navi'
-        #img_container=yield
+    #container
+      #frame 
+        =yield_content :header, partial("layouts/navi")    
+        =yield_content :main, partial("layouts/main")
+        -if current_page?(:photos, :show, :id => 356)
+          %p Contact form
+          -#=yield_content :contact_form, partial("layouts/main")  
+      =yield
          
       =partial 'layouts/footer'    
         

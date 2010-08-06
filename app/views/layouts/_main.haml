@@ -1,0 +1,16 @@
+-content_for :main do
+  -if current_page?(:index)
+    %p Main page
+    -#=image_tag   
+  -elsif current_page?(:about)
+    %p About
+  -elsif current_page?(:contact)
+    %p Contact form
+    -#=yield_content :contact_form, partial("layouts/main") 
+  -elsif current_page?(:projects_index)
+    %p Projects
+  -elsif current_page?(:projects_show)
+    %p Some Project Photo
+    =@project.title    
+  -#-else
+    -#%p Not here 

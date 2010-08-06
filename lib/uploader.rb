@@ -14,27 +14,29 @@ def cache_dir
 Padrino.root("tmp")
 end
 
-process :analize
-version :thumb do
-  process :resize_to_fill => [100, 100]
-end
+process :analyse
 
-def vert
-  
-end
-
-def analize
-
+def analyse
   manipulate! do |img|
     cols, rows = img[:dimensions]
-  end
-  
-  if @cols > @rows
-    process :resize_to_fit => [384, 650]
-  else
-    process :resize_to_fit => [650, 650]
+    if cols > rows
+      cols = 650
+      rows = 650
+      img.resize "#{cols}x#{rows}"
+    else
+      cols = 384
+      rows = 650
+      img.resize "#{cols}x#{rows}"
+    end
+    img = yield(img) if block_given?
+    img  
   end  
 end
+  
+version :thumb do
+  process :resize_to_fill => [100, 100]
+end 
+
 
 def extension_white_list
 %w(jpg jpeg gif png)
