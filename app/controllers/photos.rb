@@ -1,4 +1,4 @@
-Lik.controllers :projects do
+Lik.controllers :photos do
   # get :index, :map => "/foo/bar" do
   #   session[:foo] = "bar"
   #   render 'index'
@@ -18,14 +18,14 @@ Lik.controllers :projects do
   #   "Hello world!"
   # end
 
+  get :show, :with => :id do
+    @photo = Photo.find(params[:id])
+    render 'photos/show'
+  end 
+  
   get :index do
-    @projects = Project.all
-    render 'projects/index'
-  end
-
-  get :show do
-    @project = Project.find(params[:id])
-    render 'projects/show'
+    @photos = Photo.all
+    render 'photos/index'
   end
 
 end

@@ -20,7 +20,7 @@
             %td.first=project.id
             %td=project.title
             %td=project.body
-            -if !project.photos.empty?
+            -unless project.photos.empty?
               -project.photos.each do |photo|
                 %td=image_tag photo.image.thumb
             %td.last

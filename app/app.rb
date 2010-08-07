@@ -10,15 +10,13 @@ class Lik < Padrino::Application
   end
   
   get :contact do
-    render 'layouts/about'
+    render 'layouts/contact'
   end
   
   get :about do
     render 'layouts/about'
   end
   
-
-
   ##
   # Application configuration options
   #
