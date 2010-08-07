@@ -24,7 +24,7 @@ Lik.controllers :projects do
   end
 
   get :show do
-    @project = Project.find(params[:id])
+    @project = Project.find_by_id(params[:id])
     render 'projects/show'
   end
 
