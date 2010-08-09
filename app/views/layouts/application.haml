@@ -7,17 +7,9 @@
     =javascript_include_tag 'jquery'
   %body
     #container
-      #frame 
+      #frame-top
         =yield_content :header, partial("layouts/navi")    
-        =yield_content :main, partial("layouts/main")
-        -if current_page?(:photos, :show, :id => 356)
-          %p Contact form
-          -#=yield_content :contact_form, partial("layouts/main")  
       =yield
          
       =partial 'layouts/footer'    
-        
-        
-        
-    
-    
+
