@@ -2,12 +2,12 @@
 
 Lik.helpers do
 
-  def project_image
+  def project_title
+    @title_image = []
     @project = Project.find(params[:id])
-    @photos = @project.photos
-    @photos.each do |img|
-      image = MiniMagick::Image.from_file(img.image)
-      image[:height]
+    @project.photos.each do |img|
+      image = MiniMagick::Image.from_file(img.image.current_path)
+      @title_image << img if image[:width] == 384
     end
   end
 
