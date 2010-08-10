@@ -1,5 +1,9 @@
 #frame
-  =yield_content :image, partial('photos/frame')
+  -lik_face
+  %ul
+    -@face_images.each do |img|
+      %li.show=image_tag(img.image)
+  
 #main
   %p
     Проектирование: 

@@ -23,7 +23,7 @@ Lik.controllers :photos do
     render 'photos/show'
   end 
   
-  get :index do
+  get :index, :parent => :projects do
     @photos = Photo.all
     render 'photos/index'
   end

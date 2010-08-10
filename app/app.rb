@@ -5,7 +5,7 @@ class Lik < Padrino::Application
   
   #layout :application 
   
-  get :index do 
+  get :index, :provides => :js do 
     render 'layouts/services'
   end
   
