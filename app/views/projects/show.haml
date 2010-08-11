@@ -1,11 +1,8 @@
+-project_face
 #frame
-  -project_face
-  -@face_image.each do |img|
-    =image_tag(img.image, :class => 'content')
+  #images
+    -@face_image.each do |img|
+      =image_tag(img.image, :class => 'content')
   %p=@project.title
 
-#main 
-  -@project.photos.each do |photo|
-    =link_to image_tag(photo.image.thumb), url(:photos, :show, :id => photo.id)
-  %p=@project.body 
-    
+=yield_content :main, partial('projects/main') 

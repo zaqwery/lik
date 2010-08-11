@@ -1,2 +1,8 @@
--@projects.each do |project|
-  =link_to project.title, url(:projects, :show, :id => project.id)
+#frame
+  -#-project_face
+  -@projects.each do |project|
+    =link_to image_tag(project.photos.first.image.thumb), url(:projects, :show, :id => project.id)
+
+#main 
+  -@projects.each do |project|
+    =link_to project.title, url(:projects, :show, :id => project.id)
