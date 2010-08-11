@@ -1,8 +1,8 @@
 #frame
-  -lik_face
-  %ul
+  #images
+    -lik_face
     -@face_images.each do |img|
-      %li.show=image_tag(img.image)
+      =image_tag(img.image)
   
 #main
   %p
