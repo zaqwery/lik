@@ -16,6 +16,7 @@ class Lik < Padrino::Application
   get :about do
     render 'layouts/about'
   end
+
   
   ##
   # Application configuration options
