@@ -29,17 +29,19 @@ body {
   border-right: 1px solid #ec9a94;
   background-color: #fefefe;
   padding: 20px 0 40px 0;
-  margin: -14px auto 0;
-  position: relative; }
+  margin: -14px auto 0; }
 
 #images {
   width: 384px;
-  height: 510px;
-  overflow: hidden;
+  height: 100%;
   margin: 10px auto 0;
-  position: relative;
-  border: 1px solid black;
-  overflow: hidden; }
+  position: relative; }
+
+.content {
+  position: absolute;
+  overflow: visible;
+  z-index: 2;
+  border: 1px solid black; }
 
 #main {
   background-color: #ffeeff;
@@ -70,15 +72,6 @@ body {
     text-align: center;
     text-transform: uppercase; }
 
-#img_container {
-  width: 650px;
-  height: 100%;
-  position: relative;
-  right: 95px;
-  z-index: 2; }
-  #img_container img {
-    border: 1px solid black; }
-
 #line {
   height: 1px;
   width: 600px;
@@ -101,8 +94,3 @@ body {
   float: right;
   margin-right: 132px;
   margin-top: 20px; }
-
-#test {
-  width: 100%;
-  height: 150px;
-  background-color: #ffffcc; }
