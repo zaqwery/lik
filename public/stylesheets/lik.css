@@ -32,14 +32,11 @@ body {
   margin: -14px auto 0; }
 
 #images {
-  width: 384px;
-  height: 100%;
-  margin: 10px auto 0;
-  position: relative; }
+  margin: 0px auto; }
 
 .content {
-  position: absolute;
-  overflow: visible;
+  position: relative;
+  margin: 0px auto;
   z-index: 2;
   border: 1px solid black; }
 

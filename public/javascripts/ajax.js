@@ -1,17 +1,15 @@
 $(document).ready(function(){
 
-  var cycleWin = $(function() {
-          $('#images').cycle();
-      });
-
-  $(cycleWin).bind();
-  $(cycleWin).unbind();
+  $('#images').cycle();
 
   $(".thumb").click(function(){	
     var largePath = $(this).attr("href");
-    
-    $(".content").attr({ src: largePath });
+    $('.content:not(:first)').remove();
+    $(".content").attr({ src: largePath }).removeAttr('style');
+    $('#images').cycle('destroy');
+    $('#images').fadeIn('slow');
     return false;
   });
+  
 
 });
