@@ -2,7 +2,7 @@
 #frame
   #images
     -@face_image.each do |img|
-      =image_tag(img.image, :class => 'content')
+      =image_tag(img.image)
   %p=@project.title
 
 =yield_content :main, partial('projects/main') 

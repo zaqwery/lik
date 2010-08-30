@@ -32,13 +32,18 @@ body {
   margin: -14px auto 0; }
 
 #images {
-  margin: 0px auto; }
-
-.content {
-  position: relative;
   margin: 0px auto;
-  z-index: 2;
-  border: 1px solid black; }
+  position: relative; }
+  #images img {
+    position: absolute;
+    margin: 0px auto;
+    border: 1px solid black;
+    left: 0px;
+    z-index: 0; }
+  #images img.previous {
+    z-index: 1; }
+  #images img.current {
+    z-index: 2; }
 
 #main {
   background-color: #ffeeff;
