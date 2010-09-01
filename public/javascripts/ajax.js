@@ -25,22 +25,26 @@ $(document).ready(function(){
   
   // thumbnail clicking 
   $('.thumb').click(function(){
-    clearInterval(rotate);	
+    clearInterval(rotate); // stops	rotation
     var largePath = $(this).attr('href');
     $('#images img:not(:first)').remove();
-    $('#images img').attr({ src: largePath }).removeAttr('style').fadeIn('slow');
-    var imgH = $('#images img').height();
-    var imgW = $('#images img').width();
-    $('#images').css({ 
-      height: function(index, value) {
-        return imgH + 'px';
-      },
-      width: function(index, value) {
-        return imgW + 'px';
-      }
+    // sets thumbnail picture into #images
+    $('#images img').attr({ src: largePath }).removeAttr('style').load(function() {
+      var imgH = $('#images img').height();
+      var imgW = $('#images img').width();          
+      //#images position
+      $('#images').css({ 
+        height: function(index, value) {
+          return imgH + 'px';
+        },
+        width: function(index, value) {
+          return imgW + 'px';
+        },
+        left: function(){
+          return (imgH > imgW) ? '0px' : '-100px'
+        }        
+      }); 
     });
-    //$('#images').stop();
-    //$('#images').fadeIn('slow');
     return false;
   });
 });  
