@@ -23,30 +23,17 @@ $(document).ready(function(){
   $('#images img:first').addClass('current');
   $('#images img:not(:first)').css({ opacity: 0.0 });
   
-  // thumbnail clicking 
-  $('.thumb').click(function(){
-    clearInterval(rotate); // stops	rotation
-    var largePath = $(this).attr('href');
-    $('#images img:not(:first)').remove();
-    // sets thumbnail picture into #images
-    $('#images img').attr({ src: largePath }).removeAttr('style').load(function() {
-      var imgH = $('#images img').height();
-      var imgW = $('#images img').width();          
-      //#images position
-      $('#images').css({ 
-        height: function(index, value) {
-          return imgH + 'px';
-        },
-        width: function(index, value) {
-          return imgW + 'px';
-        },
-        left: function(){
-          return (imgH > imgW) ? '0px' : '-100px'
-        }        
-      }); 
-    });
-    return false;
-  });
+     
+    
+  if ($('#images img').length > 1)
+    {
+      thumbClick("clearInterval(rotate);", "$('#images img:not(:first)').remove();");
+    }
+  else
+    {
+      clearInterval(rotate);
+      thumbClick();
+    }
 });  
 
 
@@ -63,6 +50,35 @@ function rotateImages() {
   oCurPhoto.removeClass('current').addClass('previous');
   oNxtPhoto.css({ opacity: 0.0 }).addClass('current').animate({ opacity: 1.0 }, 800);
   oCurPhoto.removeClass('previous').animate({ opacity: 0.0 }, 800);
+}
+
+// thumbnail clicking 
+function thumbClick(stop, isFirst) {
+  
+  $('.thumb').click(function(){
+    arguments[0];    
+     // stop rotation
+    arguments[1];
+    var largePath = $(this).attr('href');    
+    // sets thumbnail picture into #images
+    $('#images img').attr({ src: largePath }).removeAttr('style').css({ opacity: 0.0}).load(function() {
+      var imgH = $('#images img').height();
+      var imgW = $('#images img').width();          
+      //#images position
+      $('#images').css({ 
+        height: function(index, value) {
+          return imgH + 'px';
+        },
+        width: function(index, value) {
+          return imgW + 'px';
+        },
+        left: function(){
+          return (imgH > imgW) ? '0px' : '-100px'
+        }        
+      }); 
+    }).animate({ opacity: 1.0}, 1000);
+    return false;
+  });
 }
 
  
