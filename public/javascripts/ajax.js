@@ -22,18 +22,30 @@ $(document).ready(function(){
 
   $('#images img:first').addClass('current');
   $('#images img:not(:first)').css({ opacity: 0.0 });
-  
-     
-    
-  if ($('#images img').length > 1)
-    {
-      thumbClick("clearInterval(rotate);", "$('#images img:not(:first)').remove();");
-    }
-  else
-    {
-      clearInterval(rotate);
-      thumbClick();
-    }
+ 
+  ($('#images img').length == 1) ? stopInterval() : null
+  $('.thumb').click(function(event){
+    ($('#images img').length > 1) ? stopInterval()+isFirst() : null
+    var largePath = $(this).attr('href');    
+    // sets thumbnail picture into #images
+    $('#images img').css({ opacity: 0.0}).attr({ src: largePath }).load(function() {
+      var imgH = $('#images img').height();
+      var imgW = $('#images img').width();          
+      //#images position
+      $('#images').css({ 
+        height: function(index, value) {
+          return imgH + 'px';
+        },
+        width: function(index, value) {
+          return imgW + 'px';
+        },
+        left: function(){
+          return (imgH > imgW) ? '0px' : '-100px'
+        }        
+      }); 
+    }).animate({ opacity: 1.0}, 400);
+    event.preventDefault();
+  });
 });  
 
 
@@ -52,34 +64,12 @@ function rotateImages() {
   oCurPhoto.removeClass('previous').animate({ opacity: 0.0 }, 800);
 }
 
+var stopInterval = function() {clearInterval(rotate);}
+var isFirst = function() {$('#images img:not(:first)').remove();}
+
 // thumbnail clicking 
-function thumbClick(stop, isFirst) {
-  
-  $('.thumb').click(function(){
-    arguments[0];    
-     // stop rotation
-    arguments[1];
-    var largePath = $(this).attr('href');    
-    // sets thumbnail picture into #images
-    $('#images img').attr({ src: largePath }).removeAttr('style').css({ opacity: 0.0}).load(function() {
-      var imgH = $('#images img').height();
-      var imgW = $('#images img').width();          
-      //#images position
-      $('#images').css({ 
-        height: function(index, value) {
-          return imgH + 'px';
-        },
-        width: function(index, value) {
-          return imgW + 'px';
-        },
-        left: function(){
-          return (imgH > imgW) ? '0px' : '-100px'
-        }        
-      }); 
-    }).animate({ opacity: 1.0}, 1000);
-    return false;
-  });
-}
+
+
 
  
 
