@@ -25,8 +25,8 @@ class Admin < Padrino::Application
   end
 
   access_control.roles_for :admin do |role|
-      role.project_module :photos, "/photos"
-      role.project_module :projects, "/projects"
-      role.project_module :accounts, "/accounts"
+      #role.project_module :фотки, "/photos"
+      role.project_module :Проекты, "/projects"
+      role.project_module :Аккаунты, "/accounts"
   end
 end

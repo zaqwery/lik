@@ -1,10 +1,5 @@
 Admin.controllers :photos do
 
-  get :index do
-    @photos = Photo.all
-    render 'photos/index'
-  end
-
   get :new do
     @photo = Photo.new
     render 'photos/new'

@@ -17,4 +17,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 # Padrino
-gem 'padrino', "0.9.14"
+gem 'padrino', "0.9.15"
