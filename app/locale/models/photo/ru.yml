@@ -1,0 +1,10 @@
+ru:
+  models:
+    photo:
+      name: Photo
+      attributes:
+        id: Id
+        image: Image
+        created_at: Created at
+        updated_at: Updated at
+        project_id: Project

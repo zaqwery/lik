@@ -1,0 +1,31 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:partners, :index)
+      %li=link_to pat(:new), url(:partners, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:partner)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:partner, :id)
+          %th=mat(:partner, :name)
+          %th=mat(:partner, :website)
+          %th=mat(:partner, :image)
+          %th.last="&nbsp;"
+        -@partners.each do |partner|
+          %tr
+            %td.first=partner.id
+            %td=partner.name
+            %td=partner.website
+            %td=image_tag partner.image
+            %td.last
+              =button_to pat(:edit), url(:partners, :edit, :id => partner.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:partners, :destroy, :id => partner.id), :method => :delete, :class => :button_to
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

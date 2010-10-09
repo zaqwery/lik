@@ -2,6 +2,9 @@
   %p партнеры
   #footer_line
   #partners
+    -show_partners
+    -@partners.each do |partner|
+      =image_tag partner.image
   %p 
   Copyright © 
   =Time.now.year

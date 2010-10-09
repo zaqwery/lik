@@ -10,12 +10,24 @@ class Lik < Padrino::Application
   end
   
   get :contact do
-    render 'layouts/contact'
+    render 'contact_form/index'
   end
   
   get :about do
     render 'layouts/about'
-  end
+  end   
+  
+  #set :mailer_defaults, :from => params[:from_email]
+  
+  
+  set :delivery_method, :smtp => { 
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => 'zaqwery@gmail.com',
+    :password             => 'zaq12wery',
+    :authentication       => :plain,
+    :enable_starttls_auto => true  
+  }
 
   
   ##

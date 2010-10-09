@@ -42,4 +42,25 @@ def extension_white_list
 %w(jpg jpeg gif png)
 end
 
-end
+end 
+
+class PartnersUpldr < CarrierWave::Uploader::Base  
+  include CarrierWave::MiniMagick
+
+  storage :file
+
+  def root; File.join(Padrino.root,"public/"); end
+
+  def store_dir
+  'partners'
+  end
+
+  def cache_dir
+  Padrino.root("tmp")
+  end 
+  
+  def extension_white_list
+  %w(jpg jpeg gif png)
+  end
+   
+end 
