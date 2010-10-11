@@ -5,8 +5,12 @@ Lik.controllers :contact_form do
     body = "Контактные данные :\n 
             Имя: #{params[:name]}, <#{params[:from_email]}>\n 
             Текст сообщения:\n #{params[:body]}"   
-    email(:from => params[:from_email], :to => "zaqwery@yahoo.com", :subject => message, :body => body)
-    redirect url(:contact)
+    email(:from => params[:from_email], 
+          :to => "zaqwery@yahoo.com", 
+          :subject => message, 
+          :body => body)
+    redirect url(:deliver)
+    
   end
-   
+
 end

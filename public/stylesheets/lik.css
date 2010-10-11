@@ -30,6 +30,11 @@ body {
   background-color: #fefefe;
   padding: 20px 0 40px 0;
   margin: -14px auto 0; }
+  #frame img {
+    border: 1px solid black; }
+  #frame h1 {
+    font-size: 16px;
+    font-weight: normal; }
 
 #images {
   margin: 0px auto;
@@ -46,18 +51,20 @@ body {
     z-index: 2; }
 
 #main {
-  background-color: #ffeeff;
   margin: 0px auto;
+  padding-top: 20px;
   width: 460px;
   height: 100%; }
   #main p {
     text-align: left; }
   #main li {
     text-align: left; }
+  #main img {
+    border: 1px solid black; }
 
 #footer {
-  background-color: #ffddcc;
   margin: 0px auto;
+  padding-top: 10px;
   width: 460px;
   height: 100%; }
   #footer p {
@@ -65,6 +72,8 @@ body {
     margin-bottom: 0px; }
   #footer li {
     text-align: left; }
+  #footer img {
+    border: none; }
 
 #header {
   height: 100%; }
@@ -88,11 +97,28 @@ body {
   width: 460px;
   background-color: #ec9a94; }
 
-#partners {
-  width: 460px;
-  height: 100%; }
+#copyright {
+  padding-top: 10px;
+  font-size: 10px; }
 
 .logo {
   float: right;
   margin-right: 132px;
   margin-top: 20px; }
+
+#contact_area {
+  padding-left: 10px;
+  margin-left: 20px;
+  text-align: left;
+  width: 300px; }
+  #contact_area textarea {
+    border: 1px solid #cccccc;
+    color: #333333;
+    font-size: 12px;
+    height: 100px;
+    margin: 5px 0 0;
+    width: 400px; }
+  #contact_area input {
+    border: 1px solid #cccccc;
+    color: #333333;
+    font-size: 12px; }

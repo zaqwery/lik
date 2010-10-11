@@ -13,6 +13,10 @@ class Lik < Padrino::Application
     render 'contact_form/index'
   end
   
+  get :deliver do
+    render 'contact_form/confirmation'
+  end
+  
   get :about do
     render 'layouts/about'
   end   

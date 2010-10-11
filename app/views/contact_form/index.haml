@@ -1,16 +1,22 @@
--form_tag 'contact_form/message' do 
-  
-  %p
-    =label_tag :name
-    =text_field_tag :name
-  %p
-    =label_tag :subject
-    =text_field_tag :subject
-  %p
-    =label_tag :email
-    =text_field_tag :from_email
-  %p
-    =label_tag :body
-    =text_field_tag :body
-  %p
-    =submit_tag "Send"
+#frame 
+  #contact_area
+    -form_tag 'contact_form/message' do 
+      
+      %p
+        Военный спуск, 1, офис "ЛИК" <br />
+        Одесса, Украина, 65082<br />        
+        тел: 38 048 7770284,  
+      %p
+        =text_field_tag :name
+        =label_tag :Ваше_имя        
+      %p        
+        =text_field_tag :subject
+        =label_tag :Тема
+      %p        
+        =text_field_tag :from_email
+        =label_tag :Ваш_email
+      %p
+        =label_tag :Ваше_сообщение
+        =text_area_tag :body
+      %p
+        =submit_tag "Отправить" 
