@@ -9,7 +9,7 @@ Admin.controllers :photos do
     @photo = Photo.new(params[:photo])
     if @photo.save!
     	@project_id = @photo.project_id
-      flash[:notice] = 'Photo was successfully created.'
+      flash[:notice] = 'Изображение успешно создано!'
       redirect url(:projects, :edit, :id => @project_id)
     else
       render 'projects/new'
@@ -24,7 +24,7 @@ Admin.controllers :photos do
   put :update, :with => :id do
     @photo = Photo.find(params[:id])
     if @photo.update_attributes
-      flash[:notice] = 'Photo was successfully updated.'
+      flash[:notice] = 'Изображение успешно обновлено!'
       redirect url(:photos, :edit, :id => @photo.id)
     else
       render 'photos/edit'
@@ -35,10 +35,10 @@ Admin.controllers :photos do
     photo = Photo.find(params[:id])
     if photo.destroy 
       @project_id = photo.project_id
-      flash[:notice] = 'Photo was successfully destroyed.'
+      flash[:notice] = 'Изображение удалено!'
       redirect url(:projects, :edit, :id => @project_id)
     else
-      flash[:error] = 'Impossible destroy Photo!'
+      flash[:error] = 'Невозможно удалить изображение'
     end
     redirect url(:photos, :index)
   end

@@ -25,10 +25,10 @@ class Lik < Padrino::Application
   
   
   set :delivery_method, :smtp => { 
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :user_name            => 'zaqwery@gmail.com',
-    :password             => 'zaq12wery',
+    :address              => "smtp.locum.ru",
+    :port                 => 25,
+    :user_name            => 'lik-contactform@lik.od.ua',
+    :password             => 'lik-odessa-disel',
     :authentication       => :plain,
     :enable_starttls_auto => true  
   }

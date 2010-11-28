@@ -13,7 +13,7 @@ Admin.controllers :partners do
   post :create do
     @partner = Partner.new(params[:partner])
     if @partner.save
-      flash[:notice] = 'Partner was successfully created.'
+      flash[:notice] = 'Новый партнер добавлен'
       redirect url(:partners, :edit, :id => @partner.id)
     else
       render 'partners/new'
@@ -28,7 +28,7 @@ Admin.controllers :partners do
   put :update, :with => :id do
     @partner = Partner.find(params[:id])
     if @partner.update_attributes(params[:partner])
-      flash[:notice] = 'Partner was successfully updated.'
+      flash[:notice] = 'Обновлена информация о партнере'
       redirect url(:partners, :edit, :id => @partner.id)
     else
       render 'partners/edit'
@@ -38,9 +38,9 @@ Admin.controllers :partners do
   delete :destroy, :with => :id do
     partner = Partner.find(params[:id])
     if partner.destroy
-      flash[:notice] = 'Partner was successfully destroyed.'
+      flash[:notice] = 'Информация о партнере удалена'
     else
-      flash[:error] = 'Impossible destroy Partner!'
+      flash[:error] = 'Невозможно удалить партнера!'
     end
     redirect url(:partners, :index)
   end

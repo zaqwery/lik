@@ -30,8 +30,6 @@ body {
   background-color: #fefefe;
   padding: 20px 0 40px 0;
   margin: -14px auto 0; }
-  #frame img {
-    border: 1px solid black; }
   #frame h1 {
     font-size: 16px;
     font-weight: normal; }
@@ -41,7 +39,6 @@ body {
   position: relative; }
   #images img {
     position: absolute;
-    margin: 0px auto;
     border: 1px solid black;
     left: 0px;
     z-index: 0; }
@@ -110,7 +107,7 @@ body {
   padding-left: 10px;
   margin-left: 20px;
   text-align: left;
-  width: 300px; }
+  width: 400px; }
   #contact_area textarea {
     border: 1px solid #cccccc;
     color: #333333;
@@ -122,3 +119,6 @@ body {
     border: 1px solid #cccccc;
     color: #333333;
     font-size: 12px; }
+  #contact_area h2 {
+    font-size: 14pt;
+    font-color: #ec9a94; }

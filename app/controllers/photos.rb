@@ -28,7 +28,8 @@ Lik.controllers :photos do
     render 'photos/index'
   end
   
-  get :images, :map => 'images/:name' do
+  get :images, :map => 'images/*name' do
+    params[:name]['img']
   end
 
 end

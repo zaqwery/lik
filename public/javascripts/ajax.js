@@ -1,24 +1,23 @@
 $(document).ready(function(){
   
   // sets #images height & width
-  var a = [];
-  var b = [];
+  window.onload = function (){
+    var a = [];
+    var b = [];
 
-  $('#images img').each(function(){
-      var height = $(this).height();
-      var width = $(this).width();
-      a.push(height);
-      b.push(width)
-  });
+    $('#images img').each(function(){
+        var height = $(this).height();
+        var width = $(this).width();
+        a.push(height);
+        b.push(width);
+    });
 
-  $('#images').css({ 
-    height: function(index, value) {
-      return Math.max.apply(null, a) + 'px';
-    },
-    width: function(index, value) {
-      return Math.max.apply(null, b) + 'px';
-    }
-  });
+    $('#images').css({ 
+      height: Math.max.apply(null, a) + 'px'
+      ,
+      width: Math.max.apply(null, b) + 'px'   
+    });    
+  }
 
   $('#images img:first').addClass('current');
   $('#images img:not(:first)').css({ opacity: 0.0 });
@@ -51,6 +50,10 @@ $(document).ready(function(){
 
 // creates image rotator
 var rotate = setInterval('rotateImages()', 2500);
+
+function imagesDiv(){
+  
+}
 
 function rotateImages() {
   
