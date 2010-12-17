@@ -24,8 +24,12 @@ class Admin < Padrino::Application
     role.allow "/sessions"
   end
 
-  access_control.roles_for :admin do |role|
-      
+  access_control.roles_for :lik do |role|      
+      role.project_module :Проекты, "/projects"
+      role.project_module :Партнеры, "/partners"
+  end
+  
+  access_control.roles_for :admin do |role|      
       #role.project_module :фотки, "/photos"
       role.project_module :Проекты, "/projects"
       role.project_module :Партнеры, "/partners"

@@ -6,8 +6,7 @@
       %li.active=link_to pat(:edit), url(:partners, :edit, :id => @partner.id)
   .content
     %h2.title
-      =pat(:edit)
-      =mt(:partner)
+      =pat(:Редактировать_информацию_о_Партнере)
     .inner
       -form_for :partner, url(:partners, :update, :id => @partner.id), :multipart => true, :method => :put, :class => :form do |f|
         =partial "partners/form", :locals => { :f => f }

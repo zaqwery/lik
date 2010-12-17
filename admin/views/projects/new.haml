@@ -5,10 +5,7 @@
       %li.active=link_to pat(:new), url(:projects, :new)
   .content
     %h2.title
-      =pat(:new)
-      =mt(:project)
+      =pat(:Добавить_Проект)
     .inner
       -form_for :project, url(:projects, :create), :class => :form do |f|
         =partial "projects/form", :locals => { :f => f }
-
--content_for :sidebar, partial("base/sidebar")

@@ -8,4 +8,24 @@
 #main 
   -@project.photos.each do |photo|
     =link_to image_tag(photo.image.thumb, :alt => @project.title), url(:photos, :images, :name => photo.image.url[8..100]), :class => 'thumb'
-  %p=@project.body 
+  %ul  
+    %li
+      %span(class="main_attr")Год: 
+      =@project.date unless @project.date.nil?
+    %li
+      %span(class="main_attr")Cтадия: 
+      =@project.stage unless @project.stage.nil?
+    %li
+      %span(class="main_attr")Общая площадь: 
+      =@project.area.to_s.chomp('.0') unless @project.area.nil?
+      м²
+    %li
+      %span(class="main_attr")Площадь участка: 
+      =@project.site_area unless @project.site_area.nil?
+      га
+    %li
+      %span(class="main_attr")Авторский коллектив: 
+      =@project.author unless @project.author.nil?
+    %li
+      %span(class="main_attr")Описание проекта: 
+      =@project.body unless @project.body.nil?

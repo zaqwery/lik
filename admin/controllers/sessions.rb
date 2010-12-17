@@ -9,7 +9,7 @@ Admin.controllers :sessions do
       set_current_account(account)
       redirect url(:base, :index)
     else
-      flash[:warning] = "Login or password wrong."
+      flash[:warning] = "Пароль или логин неверный"
       redirect url(:sessions, :new)
     end
   end

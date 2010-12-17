@@ -1,14 +1,44 @@
 .group
-  =f.label :title
+  =f.label :Название_проекта
   =f.error_message_on :title
   =f.text_field :title, :class => :text_field
-  %span.description Ex: a simple text
+  %span.description Например: Проект дома по ул.Морской, 2
+  
+.group
+  =f.label :Год_создание
+  =f.error_message_on :date
+  =f.text_field :date, :class => :text_field
+  %span.description Например: 2004-2006
 
 .group
-  =f.label :body
+  =f.label :Стадия
+  =f.error_message_on :stage
+  =f.text_field :stage, :class => :text_field
+  %span.description Например: Сдан/Эскизный проект/Проект интерьеров/Рабочий проект/Строится/...
+    
+.group
+  =f.label :Авторский_коллектив
+  =f.error_message_on :author
+  =f.text_field :author, :class => :text_field
+  %span.description Например: ГАП: Леонов А.С., арх. Игнатова Е., арх. Бушуева
+    
+.group
+  =f.label :Общая_площадь
+  =f.error_message_on :area
+  =f.text_field :area, :class => :text_field
+  %span.description Например: 2400 Внимание! не вводить буквенные символы! Только цифры!!
+      
+.group
+  =f.label :Площадь_участка
+  =f.error_message_on :site_area
+  =f.text_field :site_area, :class => :text_field
+  %span.description Например: 2400 Внимание! не вводить буквенные символы! Только цифры!!
+  
+.group
+  =f.label :Описание_проекта
   =f.error_message_on :body
   =f.text_field :body, :class => :text_field
-  %span.description Ex: a simple text
+  %span.description Например: Можно описать поставленные задачи, процесс создания
 
 .group.navform.wat-cf
   =f.submit pat(:save), :class => :button

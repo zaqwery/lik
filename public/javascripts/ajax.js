@@ -15,7 +15,9 @@ $(document).ready(function(){
     $('#images').css({ 
       height: Math.max.apply(null, a) + 'px'
       ,
-      width: Math.max.apply(null, b) + 'px'   
+      width: Math.max.apply(null, b) + 'px'
+      ,
+      left: ($('#images img').width() > $('#images img').height() ? '-96px' : '0px')  
     });    
   }
 
@@ -39,7 +41,7 @@ $(document).ready(function(){
           return imgW + 'px';
         },
         left: function(){
-          return (imgH > imgW) ? '0px' : '-100px'
+          return (imgH > imgW) ? '0px' : '-96px'
         }        
       }); 
     }).animate({ opacity: 1.0}, 400);
@@ -50,10 +52,6 @@ $(document).ready(function(){
 
 // creates image rotator
 var rotate = setInterval('rotateImages()', 2500);
-
-function imagesDiv(){
-  
-}
 
 function rotateImages() {
   
@@ -70,7 +68,6 @@ function rotateImages() {
 var stopInterval = function() {clearInterval(rotate);}
 var isFirst = function() {$('#images img:not(:first)').remove();}
 
-// thumbnail clicking 
 
 
 

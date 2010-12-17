@@ -1,8 +1,10 @@
 #frame
-  -#-project_face
-  -@projects.each do |project|
-    =link_to image_tag(project.photos.first.image.thumb, :alt => project.title), url(:projects, :show, :id => project.id, :title => project.title)
+  .frame_thumb
+    -@projects.each do |project|
+      =link_to image_tag(project.photos.first.image.thumb, :alt => project.title), url(:projects, :show, :id => project.id, :title => project.title)
 
-#main 
-  -@projects.each do |project|
-    =link_to project.title, url(:projects, :show, :id => project.id, :title => project.title)
+#main
+  -#-project_order
+  %ul
+    -@sorted_projects.each do |project|    
+      %li=link_to "#{project.date} - #{project.title}", url(:projects, :show, :id => project.id, :title => project.title)

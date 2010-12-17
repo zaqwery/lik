@@ -7,15 +7,13 @@ Admin.controllers :projects do
 
   get :new do
     @project = Project.new
-    #@photo = @project.photos
     render 'projects/new'
   end
 
   post :create do
     @project = Project.new(params[:project])
-    #@photo = Photo.new(params[:photo])
     if @project.save
-      flash[:notice] = 'Project was successfully created.'
+      flash[:notice] = 'Проект успешно добавлен'
       redirect url(:projects, :edit, :id => @project.id)
     else
       render 'projects/new'
@@ -30,7 +28,7 @@ Admin.controllers :projects do
   put :update, :with => :id do
     @project = Project.find(params[:id])
     if @project.update_attributes(params[:project])
-      flash[:notice] = 'Project was successfully updated.'
+      flash[:notice] = 'Проект успешно обновлен'
       redirect url(:projects, :edit, :id => @project.id)
     else
       render 'projects/edit'
@@ -40,9 +38,9 @@ Admin.controllers :projects do
   delete :destroy, :with => :id do
     project = Project.find(params[:id])
     if project.destroy
-      flash[:notice] = 'Project was successfully destroyed.'
+      flash[:notice] = 'Проект удален с сайта'
     else
-      flash[:error] = 'Impossible destroy Project!'
+      flash[:error] = 'Невозможно удалить проект'
     end
     redirect url(:projects, :index)
   end

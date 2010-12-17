@@ -2,24 +2,23 @@
 %html{:lang => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
-    %title Padrino Admin
+    %title Lik.od.ua
     =stylesheet_link_tag :base, "themes/default/style"
   %body
     #container
       #box
-        %h1 Padrino Admin
         #block-login.block
-          %h2 Login Box
+          %h2 Панель управления сайтом lik.od.ua
           .content.login
             .flash=[:error, :warning, :notice].map { |type| flash_tag(type, :class => "message #{type}") }.join
             -form_tag(url(:sessions, :create), :class => 'form login') do
               .group.wat-cf
                 .left
-                  %label.label.right Login
+                  %label.label.right Логин
                 .right=text_field_tag :email, :value => params[:email], :class => :text_field
               .group.wat-cf
                 .left
-                  %label.label.right Password
+                  %label.label.right Пароль
                 .right=password_field_tag :password, :value => params[:password], :class => :text_field
               .group.navform.wat-cf
-                .right=submit_tag('Sign In', :class => :button)
+                .right=submit_tag('Войти', :class => :button)

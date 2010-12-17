@@ -6,8 +6,7 @@
       %li.active=link_to pat(:edit), url(:projects, :edit, :id => @project.id)
   .content
     %h2.title
-      =pat(:edit)
-      =mt(:project)
+      =pat(:Добавить_Проект)
     .inner
       -form_for :project, url(:projects, :update, :id => @project.id), :method => :put, :class => :form do |f|
         =partial "projects/form", :locals => { :f => f }
@@ -18,5 +17,3 @@
       -form_for :photo, url(:photos, :create), :multipart => true, :class => :form do |f|
         =partial "projects/photo", :locals => { :f => f }
 
-
--content_for :sidebar, partial("base/sidebar")

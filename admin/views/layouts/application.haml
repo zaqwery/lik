@@ -2,15 +2,14 @@
 %html{:lang => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
-    %title Padrino Admin
+    %title Lik.od.ua Admin
     =stylesheet_link_tag :base, "themes/default/style"
   %body
     #container
       #header
-        %h1=link_to "LIK Admin", url(:base_index)
+        %h1=link_to "LIK.OD.UA", url(:base_index)
         #user-navigation
           %ul.wat-cf
-            %li=link_to pat(:profile), url(:accounts, :edit, :id => current_account.id)
             %li=link_to pat(:logout), url(:sessions, :destroy), :method => :delete
         #main-navigation
           %ul.wat-cf

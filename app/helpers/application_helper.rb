@@ -21,8 +21,18 @@ Lik.helpers do
     project = Project.find(params[:id])
     project.photos.each do |img|
       image = MiniMagick::Image.from_file(img.image.current_path)
-      @face_image << img if image[:width] == 384
+      @face_image << img if image[:width] == 384       
     end
+    @face_image << project.photos.first if @face_image.empty?      
+  end
+  
+  def project_order
+    @project_order = []
+    projects = Project.find(:all)
+    projects.each do |project|      
+      @project_order << project.date + ' - ' + project.title
+    end
+    @project_order.sort    
   end
   
   def lik_face
@@ -35,6 +45,5 @@ Lik.helpers do
       end
     end
   end
-
 
 end
