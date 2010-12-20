@@ -18,7 +18,7 @@ GEM
     daemons (1.1.0)
     eventmachine (0.12.10)
     git (1.2.5)
-    haml (3.0.24)
+    haml (3.0.25)
     http_router (0.4.1)
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
