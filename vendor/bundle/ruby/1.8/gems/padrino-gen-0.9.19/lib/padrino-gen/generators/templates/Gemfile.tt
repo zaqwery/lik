@@ -1,0 +1,21 @@
+source :rubygems
+
+# Project requirements
+gem 'rake'
+gem 'rack-flash'
+gem 'thin' # or mongrel
+
+# Component requirements
+
+# Test requirements
+
+
+<%- if options.dev? -%>
+# Padrino
+%w(core gen helpers mailer admin).each do |gem|
+  gem 'padrino-' + gem, :path => '<%= Padrino::Generators::DEV_PATH %>/padrino-' + gem
+end
+<%- else -%>
+# Padrino
+gem 'padrino', "<%= Padrino.version %>"
+<%- end -%>

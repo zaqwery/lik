@@ -1,5 +1,3 @@
-require "bundler/capistrano"
-
 set :application, "LIK"
 set :repository,  "git@github.com:zaqwery/lik.git"
 
@@ -27,15 +25,17 @@ role :db,  "lithium.locum.ru", :primary => true # This is where Rails migrations
 #set :unicorn_pid, "/var/run/unicorn/lik-odessa.hosting_lik-odessa.pid"
 
 # - for unicorn - #
+set :padrino, "/home/hosting_lik-odessa/.gem/ruby/1.8/bin/padrino"
+
 namespace :deploy do
   desc "Start application"
   task :start, :roles => :app do
-     run "cd #{deploy_to}/current && padrino start -e production"
+     run "cd #{deploy_to}/current && #{padrino} start -e production"
   end
 
   desc "Stop application"
   task :stop, :roles => :app do
-    run "cd #{deploy_to}/current && padrino stop -e production"
+    run "cd #{deploy_to}/current && #{padrino} stop -e production"
   end
 
   desc "Restart Application"
