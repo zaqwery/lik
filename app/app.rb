@@ -33,5 +33,9 @@ class Lik < Padrino::Application
     :authentication       => :plain,
     :enable_starttls_auto => true  
   }
+  
+  configure :production do
+    set :domain, "lik.od.ua"
+  end
 
 end

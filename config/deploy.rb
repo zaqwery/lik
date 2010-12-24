@@ -12,35 +12,31 @@ set :scm, :git
 role :web, "lithium.locum.ru"                          # Your HTTP server, Apache/etc
 role :app, "lithium.locum.ru"                          # This may be the same as your `Web` server
 role :db,  "lithium.locum.ru", :primary => true # This is where Rails migrations will run
-
 #after "deploy:update_code", :copy_database_config
 
 #task :copy_database_config, roles => :app do
- # db_config = "#{shared_path}/database.yml"
-  #run "cp #{db_config} #{release_path}/config/database.yml"
+#  db_config = "#{shared_path}/database.rb"
+#  run "cp #{db_config} #{release_path}/config/database.rb"
 #end
 
-#set :unicorn_rails, "/var/lib/gems/1.8/bin/unicorn_rails"
-#set :unicorn_conf, "/etc/unicorn/likp-odessa.hosting_lik-odessa.rb"
-#set :unicorn_pid, "/var/run/unicorn/lik-odessa.hosting_lik-odessa.pid"
+set :unicorn, "/var/lib/gems/1.8/bin/unicorn"
+set :unicorn_conf, "/etc/unicorn/lik-odessa.lik-odessa.rb"
+set :unicorn_pid, "/var/run/unicorn/lik-odessa.lik-odessa.pid"
 
 # - for unicorn - #
-set :padrino, "/home/hosting_lik-odessa/.gem/ruby/1.8/bin/padrino"
-
 namespace :deploy do
   desc "Start application"
   task :start, :roles => :app do
-     run "cd #{deploy_to}/current && #{padrino} start -e production"
+    run "#{unicorn} -Dc #{unicorn_conf}"
   end
 
   desc "Stop application"
   task :stop, :roles => :app do
-    run "cd #{deploy_to}/current && #{padrino} stop -e production"
+    run "[ -f #{unicorn_pid} ] && kill -QUIT `cat #{unicorn_pid}`"
   end
 
   desc "Restart Application"
   task :restart, :roles => :app do
-    deploy.stop
-    deploy.start
+    run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn} -Dc #{unicorn_conf}"
   end
 end

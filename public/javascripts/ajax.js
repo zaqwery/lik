@@ -25,11 +25,13 @@ $(document).ready(function(){
   $('#images img:not(:first)').css({ opacity: 0.0 });
  
   ($('#images img').length == 1) ? stopInterval() : null
-  $('.thumb').click(function(event){
+  
+  $('.thumb').click(function(event){    
     ($('#images img').length > 1) ? stopInterval()+isFirst() : null
     var largePath = $(this).attr('href');    
     // sets thumbnail picture into #images
-    $('#images img').css({ opacity: 0.0}).attr({ src: largePath }).load(function() {
+    
+    $('#images img').animate({ opacity: 0.0 }, 500).attr({ src: largePath }).load(function() {
       var imgH = $('#images img').height();
       var imgW = $('#images img').width();          
       //#images position
@@ -40,11 +42,9 @@ $(document).ready(function(){
         width: function(index, value) {
           return imgW + 'px';
         },
-        left: function(){
-          return (imgH > imgW) ? '0px' : '-96px'
-        }        
+        left: ($('#images img').width() > $('#images img').height() ? '-96px' : '0px')
       }); 
-    }).animate({ opacity: 1.0}, 400);
+    }).animate({ opacity: 1.0}, 500);
     event.preventDefault();
   });
 });  

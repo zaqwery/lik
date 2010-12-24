@@ -11,17 +11,17 @@
         %tr
           %th.first=mat(:project, :id)
           %th=mat(:project, :title)
-          %th=mat(:project, :body)
+          
           %th=mat(:photo, :image)
           %th.last="&nbsp;"
         -@projects.each do |project|
           %tr
             %td.first=project.id
             %td=project.title
-            %td=project.body
-            -unless project.photos.empty?
-              -project.photos.each do |photo|
-                %td=image_tag photo.image.thumb
+            %td
+              -unless project.photos.empty?
+                -project.photos.each do |photo|
+                  =image_tag photo.image.thumb
             %td.last
               =button_to pat(:edit), url(:projects, :edit, :id => project.id), :method => :get, :class => :button_to
               ="|"

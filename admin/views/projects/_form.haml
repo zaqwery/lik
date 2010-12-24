@@ -2,7 +2,7 @@
   =f.label :Название_проекта
   =f.error_message_on :title
   =f.text_field :title, :class => :text_field
-  %span.description Например: Проект дома по ул.Морской, 2
+  %span.description Например: Проект дома по ул.Морской, 2. Использовать только одинарные кавычки '
   
 .group
   =f.label :Год_создание
@@ -38,7 +38,7 @@
   =f.label :Описание_проекта
   =f.error_message_on :body
   =f.text_field :body, :class => :text_field
-  %span.description Например: Можно описать поставленные задачи, процесс создания
+  %span.description Например: 6-ти этажный дом, 32 номера, номера президенского класса,  люкс, полулюкс, стандарт, спа, бассейн, ресторан на 40 мест или любую другая информация
 
 .group.navform.wat-cf
   =f.submit pat(:save), :class => :button

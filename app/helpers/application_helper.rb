@@ -36,12 +36,14 @@ Lik.helpers do
   end
   
   def lik_face
-    @face_images = []
+    pics_box = []
     projects = Project.find(:all)
     projects.each do |project|
       project.photos.each do |img|
         image = MiniMagick::Image.from_file(img.image.current_path)
-        @face_images << img if image[:width] == 384
+        pics_box << img if image[:width] == 384
+        medium = pics_box.shuffle.sort {rand}
+        @face_images = medium.first(7)
       end
     end
   end

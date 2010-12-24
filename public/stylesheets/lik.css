@@ -3,6 +3,10 @@ body {
   font-size: 14px;
   font-color: #292524;
   background-color: #cccccc; }
+  body a:link {
+    color: #0f0f0f; }
+  body a:visited {
+    color: #0f0f0f; }
 
 #container {
   background-color: #e6e6e6;
@@ -41,7 +45,7 @@ body {
     margin: auto 16px; }
 
 .frame_thumb {
-  margin: 0 30px;
+  margin: 0 30px 20px;
   position: relative; }
 
 #images {
@@ -64,9 +68,9 @@ body {
   height: 100%; }
   #main p {
     text-align: justify;
-    margin: 5px auto; }
+    margin: 10px 20px; }
   #main ul {
-    margin: 5px auto; }
+    margin: 20px auto; }
   #main li {
     width: 100%;
     margin: 5px auto 0 -21px;
@@ -134,7 +138,7 @@ body {
     font-size: 12px;
     height: 100px;
     margin: 5px 0 0;
-    width: 400px; }
+    width: 365px; }
   #contact_area input {
     border: 1px solid #cccccc;
     color: #333333;
